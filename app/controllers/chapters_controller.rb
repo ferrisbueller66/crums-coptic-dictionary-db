@@ -5,6 +5,8 @@ class ChaptersController < ApplicationController
   # GET /chapters.json
   def index
     @chapters = Chapter.all
+
+    render json: @chapters
   end
 
   # GET /chapters/1
