@@ -329,3 +329,485 @@ Processing by ChaptersController#index as HTML
 Completed 200 OK in 182ms (Views: 168.7ms | ActiveRecord: 7.0ms | Allocations: 36005)
 
 
+Started GET "/chapters" for ::1 at 2020-07-28 23:05:07 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChaptersController#index as HTML
+  [1m[36mChapter Load (0.6ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.8ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (1.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (95.1ms)
+Completed 200 OK in 163ms (Views: 139.6ms | ActiveRecord: 6.5ms | Allocations: 42935)
+
+
+Started GET "/" for ::1 at 2020-08-04 10:03:20 -0400
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/user/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/user/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.6ms | Allocations: 480)
+Completed 200 OK in 44ms (Views: 29.3ms | ActiveRecord: 0.0ms | Allocations: 2977)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 10:03:26 -0400
+Processing by ChaptersController#index as HTML
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.9ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (1.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (151.14ms)
+Completed 200 OK in 279ms (Views: 216.4ms | ActiveRecord: 8.5ms | Allocations: 53577)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 10:52:20 -0400
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChaptersController#index as HTML
+  [1m[36mChapter Load (2.1ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.8ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (1.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (109.94ms)
+Completed 200 OK in 209ms (Views: 170.9ms | ActiveRecord: 9.1ms | Allocations: 45079)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 10:54:17 -0400
+Processing by ChaptersController#index as HTML
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (5.8ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (104.17ms)
+Completed 200 OK in 114ms (Views: 104.3ms | ActiveRecord: 6.9ms | Allocations: 6182)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:12:32 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChaptersController#index as HTML
+  [1m[36mChapter Load (0.6ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.8ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (1.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (123.38ms)
+Completed 200 OK in 225ms (Views: 189.1ms | ActiveRecord: 7.9ms | Allocations: 45417)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:23:00 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (2.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (1.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (186.99ms)
+Completed 200 OK in 242ms (Views: 232.9ms | ActiveRecord: 5.0ms | Allocations: 6046)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:24:18 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.41ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 1.0ms | Allocations: 5966)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:25:05 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.52ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 1.2ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:27:35 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.2ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.9ms | Allocations: 5966)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:27:49 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (64.96ms)
+Completed 200 OK in 69ms (Views: 66.9ms | ActiveRecord: 1.1ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 13:29:48 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.43ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 1.3ms | Allocations: 5966)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:15:09 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (1.9ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (5.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (1.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (1.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (186.35ms)
+Completed 200 OK in 352ms (Views: 270.0ms | ActiveRecord: 15.8ms | Allocations: 42572)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:15:56 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.44ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.9ms | Allocations: 5966)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:21:04 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (1.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (2.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (107.16ms)
+Completed 200 OK in 193ms (Views: 146.7ms | ActiveRecord: 8.6ms | Allocations: 42573)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:22:08 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (60.97ms)
+Completed 200 OK in 68ms (Views: 65.6ms | ActiveRecord: 1.2ms | Allocations: 5966)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:25:12 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.74ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.9ms | Allocations: 5967)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:29:48 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.81ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 1.0ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:30:45 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.14ms)
+Completed 200 OK in 69ms (Views: 67.4ms | ActiveRecord: 0.8ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:30:53 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.7ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (67.0ms)
+Completed 200 OK in 72ms (Views: 70.5ms | ActiveRecord: 1.2ms | Allocations: 5966)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:33:24 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.48ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.9ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:33:36 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.9ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 1.1ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:34:08 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.5ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 1.0ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:34:22 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.72ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.9ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:34:42 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.43ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.9ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:34:56 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.41ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 1.1ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:39:36 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.7ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (129.84ms)
+Completed 200 OK in 140ms (Views: 136.9ms | ActiveRecord: 1.5ms | Allocations: 5969)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:41:23 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.83ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 1.0ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:41:30 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.24ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.8ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:42:03 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.96ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.9ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:43:07 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.97ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 1.2ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:43:09 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (46.38ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 1.0ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:43:28 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.54ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 1.2ms | Allocations: 5949)
+
+
+Started GET "/chapters" for ::1 at 2020-08-04 14:44:27 -0400
+Processing by ChaptersController#index as */*
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters"[0m
+  ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" INNER JOIN "pages" ON "entries"."page_id" = "pages"."id" WHERE "pages"."chapter_id" = ?[0m  [["chapter_id", 1]]
+[active_model_serializers]   ↳ app/controllers/chapters_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.42ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.8ms | Allocations: 5949)
+
+
