@@ -4,14 +4,16 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.all
+    chapters = Chapter.all
 
-    render json: @chapters
+    render json: chapters
   end
 
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    chapter = Chapter.find_by_id(params[:id])
+    render json: chapter
   end
 
   # GET /chapters/new

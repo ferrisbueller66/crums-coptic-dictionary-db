@@ -6,6 +6,7 @@ class CreateEntries < ActiveRecord::Migration[6.0]
       t.string :pos
       t.string :gloss
       t.string :notes
+      t.string :reference
       t.belongs_to :page, index: true, foreign_key: true
 
       t.timestamps

@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_051229) do
+ActiveRecord::Schema.define(version: 2020_07_27_044053) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
+    t.string "author"
     t.string "language"
     t.integer "year"
     t.datetime "created_at", precision: 6, null: false
@@ -36,19 +37,19 @@ ActiveRecord::Schema.define(version: 2020_07_27_051229) do
     t.string "pos"
     t.string "gloss"
     t.string "notes"
+    t.string "reference"
     t.integer "page_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "reference"
     t.index ["page_id"], name: "index_entries_on_page_id"
   end
 
   create_table "pages", force: :cascade do |t|
     t.string "src_img"
+    t.integer "pagination"
     t.integer "chapter_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "pagination"
     t.index ["chapter_id"], name: "index_pages_on_chapter_id"
   end
 
