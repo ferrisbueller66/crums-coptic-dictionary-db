@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_030025) do
+ActiveRecord::Schema.define(version: 2020_10_04_155631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 2020_10_04_030025) do
   create_table "references", force: :cascade do |t|
     t.bigint "dialect_id"
     t.string "source"
-    t.string "volume_book"
-    t.string "line_verse"
+    t.integer "volume_book"
+    t.integer "line_verse"
     t.string "text_excerpt"
     t.string "translation"
     t.string "notes"
