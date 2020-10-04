@@ -6,8 +6,12 @@ RSpec.describe Chapter, type: :model do
       Chapter.create(title: "ⲛ")
     }
   
-    it "contains a title" do
+    it "instantiates successfully" do
       expect(chapter).to be_valid
+    end
+
+    it "contains a title" do
+      expect(chapter.title).to eq "ⲛ"
     end
   
     it "has many entries" do
