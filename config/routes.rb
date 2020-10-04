@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meanings
   resources :references
   resources :dialects
   resources :dialectical_forms
