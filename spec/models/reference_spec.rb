@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Reference, type: :model do
   let(:dialect){Dialect.create(name: "Sahidic")}
+
   let(:reference){Reference.create(
     dialect_id: dialect.id,
     source: "Dan",
@@ -13,6 +14,21 @@ RSpec.describe Reference, type: :model do
     greek_equivalent: ''
 
   )}
+
+  let(:chapter){Chapter.create(title: "ⲛ")}
+
+  let(:entry){
+    Entry.create(chapter_id: chapter.id,
+    starting_page: 243, 
+    pos: "verb", 
+    lemma: "ⲛⲟⲩϩⲃ")
+  }
+  let(:meaning){
+    Meaning.create( entry_id: entry.id,
+    lexical_entry: "ⲛⲟⲩϩⲃ",
+    translation_value: "make ready")
+  }
+
   let(:meaning_reference){MeaningReference.create(
     meaning_id: meaning.id,
     reference_id: reference.id
@@ -31,7 +47,7 @@ RSpec.describe Reference, type: :model do
   end
 
   it "has many meaning_references (joins table)" do
-    expect(reference.meaning_references.first).to eq meaning_reference
+    expect(meaning_reference.reference_id).to eq reference.id
   end
 
   it "successfully saves" do
