@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_030025) do
 
   create_table "entries", force: :cascade do |t|
     t.bigint "chapter_id"
-    t.string "starting_page"
+    t.integer "starting_page"
     t.string "lemma"
     t.string "pos"
     t.datetime "created_at", precision: 6, null: false
