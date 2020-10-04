@@ -9,11 +9,11 @@ RSpec.describe Entry, type: :model do
     lemma: "ⲛⲟⲩϩⲃ")
   }
 
-  it "contains a starting page, lemma, and part of speech (POS)" do
+  it "is valid with a starting page, lemma, and part of speech (POS)" do
     expect(entry).to be_valid
   end
 
   it "belongs to a chapter" do
-    expect(entry).to be_valid
+    expect(entry.chapter_id).to eq chapter.id
   end
 end

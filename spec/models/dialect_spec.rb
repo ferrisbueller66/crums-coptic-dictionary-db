@@ -7,12 +7,29 @@ RSpec.describe Dialect, type: :model do
     lexeme: "ⲛⲟⲩϩⲃ")
   }
 
-  it "contains a name" do
+  let(:reference){Reference.create(
+    dialect_id: dialect.id,
+    source: "Dan",
+    volume_book: 11,
+    line_verse: 45,
+    text_excerpt: '',
+    translation: '',
+    notes: '',
+    greek_equivalent: ''
+
+  )}
+
+  it "is valid and contains a name attribute" do
+    expect(dialect).to be_valid
     expect(dialect.name).to eq "Sahidic"
   end
 
   it "has_many dialectical_forms" do
-    expect(dialectical_form).to be_valid
+    expect(dialectical_form.dialect_id).to eq dialect.id
+  end
+
+  it "has_many references" do
+    expect(reference.dialect_id).to eq dialect.id
   end
 
 end

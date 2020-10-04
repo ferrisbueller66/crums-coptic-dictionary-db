@@ -32,4 +32,17 @@ RSpec.describe MeaningReference, type: :model do
     meaning_id: meaning.id,
     reference_id: reference.id
   )}
+
+  it "is valid" do
+    expect(meaning_reference).to be_valid
+  end
+
+  it "belongs to a Reference" do
+    expect(meaning_reference.reference_id).to eq reference.id
+  end
+
+  it "belongs to a Meaning" do
+    expect(meaning_reference.meaning_id).to eq meaning.id
+  end
+
 end

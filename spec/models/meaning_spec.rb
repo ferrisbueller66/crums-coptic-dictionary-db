@@ -15,16 +15,13 @@ RSpec.describe Meaning, type: :model do
     translation_value: "make ready")
   }
 
-  it "has a lexical entry" do
+  it "is valid and contains a lexical entry attribute" do
+    expect(meaning).to be_valid
     expect(meaning.lexical_entry).to eq "ⲛⲟⲩϩⲃ"
   end
 
   it "belongs to an Entry" do
     expect(meaning.entry_id).to eq entry.id
-  end
-
-  it "saves successfully" do
-    expect(meaning).to be_valid
   end
 
 end

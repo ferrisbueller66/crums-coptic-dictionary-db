@@ -19,7 +19,7 @@ RSpec.describe EntryDialect, type: :model do
     dialectical_form_id: dialectical_form.id)
   }
 
-  it "instantiates successfully" do
+  it "is valid" do
     expect(entry_dialects).to be_valid
   end
 

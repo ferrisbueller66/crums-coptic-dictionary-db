@@ -38,20 +38,16 @@ RSpec.describe Reference, type: :model do
     expect(reference.dialect_id).to eq dialect.id
   end
 
-  it "has a Source attribute" do
-    expect(reference.source).to eq "Dan"
-  end
-
-  it "has a Volume or Book reference" do
-    expect(reference.volume_book).to eq 11
-  end
-
   it "has many meaning_references (joins table)" do
-    expect(meaning_reference.reference_id).to eq reference.id
+    reference.meaning_references << meaning_reference
+    expect(reference.meaning_references.first).to eq meaning_reference
+    #expect(meaning_reference.reference_id).to eq reference.id
   end
 
-  it "successfully saves" do
+  it "is valid and contains a source and volume/book attribute" do
     expect(reference).to be_valid
+    expect(reference.source).to eq "Dan"
+    expect(reference.volume_book).to eq 11
   end
 
 end
