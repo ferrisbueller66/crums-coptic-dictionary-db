@@ -1,0 +1,2 @@
+class MeaningReference < ApplicationRecord
+end
