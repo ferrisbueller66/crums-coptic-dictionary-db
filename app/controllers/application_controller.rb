@@ -1,5 +1,4 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
     def welcome
-            render :welcome
     end
 end
