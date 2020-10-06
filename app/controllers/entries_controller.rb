@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  #before_action :set_entry, only: [:show, :update, :destroy]
 
   # GET /entries
   def index
@@ -10,6 +11,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1
   def show
+    @entry = Entry.find(params[:id])
     render json: @entry
   end
 
@@ -17,18 +19,24 @@ class EntriesController < ApplicationController
   def new
     @entry = Entry.new
     @chapters = Chapter.all
+    #this view can be deleted after development
     render :new
   end
 
   # POST /entries
   def create
+    
     @entry = Entry.new(entry_params)
-
     if @entry.save
-      render json: @entry, status: :created, location: @entry
+      render :step_two
     else
-      render json: @entry.errors, status: :unprocessable_entity
+      render :welcome
     end
+    # if @entry.save
+    #   render json: @entry, status: :created, location: @entry
+    # else
+    #   render json: @entry.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /entries/1
@@ -53,6 +61,6 @@ class EntriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def entry_params
-      params.require(:entry).permit(:chapter, :starting_page, :lemma, :pos)
+      params.require(:entry).permit(:id, :chapter_id, :starting_page, :lemma, :pos)
     end
 end

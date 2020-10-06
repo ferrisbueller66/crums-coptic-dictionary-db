@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
         @chapters = Chapter.all
         render :welcome
     end
+
 end
