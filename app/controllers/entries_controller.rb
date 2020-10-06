@@ -13,6 +13,13 @@ class EntriesController < ApplicationController
     render json: @entry
   end
 
+  # NEW /entries
+  def new
+    @entry = Entry.new
+    @chapters = Chapter.all
+    render :new
+  end
+
   # POST /entries
   def create
     @entry = Entry.new(entry_params)

@@ -1,0 +1,26 @@
+<h1>Follow the Prompts to Create a New Entry</h1>
+
+<%binding.pry%>
+<%= form_for(@entry) do |f| %>
+
+    <%= f.label :"Starting Page" %><br>
+    <%= f.text_field :starting_page %><br>
+
+    <%= f.label :Lemma %><br>
+    <%= f.text_field :lemma %><br>
+
+    <%= f.label :"Part of Speech" %><br>
+    <%= f.text_field :pos %><br>
+  
+    <br>
+   
+        <%= f.label :"Select a Chapter" %><br>
+        <%= f.collection_select :chapter_id, @chapters, :id, :title, {:include_blank => "Please select"} %><br>
+            <br>
+    
+
+    <br>
+    <br>
+    <%= f.submit %>
+
+<% end %>
