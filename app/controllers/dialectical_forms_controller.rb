@@ -17,14 +17,24 @@ class DialecticalFormsController < ApplicationController
 
   # POST /dialectical_forms
   def create
-    binding.pry
-    @dialectical_form = DialecticalForm.new(dialectical_form_params)
-    @entry = Entry.find(params[:dialectical_form][:entry_id])
-    if @entry.save
-      render :step_two
+    
+    @dialectical_form = DialecticalForm.new
+    @dialectical_form.dialect_id = dialectical_form_params[:dialect_id]
+    @dialectical_form.lexeme = dialectical_form_params[:lexeme]
+
+    @entry = Entry.find(dialectical_form_params[:entry_id])
+
+    if @dialectical_form.save
+      if dialectical_form_params[:add_dialect] === "1"
+        render :step_two
+      else
+        render :step_three
+      end
     else
-      render :welcome
+      render :step_two
+      #need to add warnings/error message in re-render
     end
+ 
 
     # if @dialectical_form.save
     #   render json: @dialectical_form, status: :created, location: @dialectical_form
