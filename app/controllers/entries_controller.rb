@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  #delete this skip_before_action after developing db in rails
   skip_before_action :verify_authenticity_token
   #before_action :set_entry, only: [:show, :update, :destroy]
 
@@ -28,6 +29,7 @@ class EntriesController < ApplicationController
     
     @entry = Entry.new(entry_params)
     if @entry.save
+      @dialectical_form = DialecticalForm.new
       render :step_two
     else
       render :welcome

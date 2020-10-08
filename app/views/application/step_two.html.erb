@@ -1,4 +1,24 @@
-<H1>Create a Meaning </h1>
+<H1>Enter the Dialects and Forms </h1>
+
+<%= form_for(@dialectical_form) do |f| %>
+
+    <%= f.label :Lexeme %><br>
+    <%= f.text_field :lexeme %><br>
+  
+    <br>
+   
+        <%= f.label :"Select a Dialect" %><br>
+        <%= f.collection_select :dialect_id, Dialect.all, :id, :name, {:include_blank => "Please select"} %><br>
+            <br>
+    
+    <%= f.hidden_field :entry_id, value: @entry.id %>
+    <%= f.label :"Add Another Dialect?" %><br>
+    <%= f.check_box :add_dialect %>
+    <br>
+    <br>
+    <%= f.submit %>
+
+<% end %>
 
 
-<%=link_to @entry.lemma, entry_path(@entry)%>
+Current Entry: <%=link_to @entry.lemma, entry_path(@entry)%>

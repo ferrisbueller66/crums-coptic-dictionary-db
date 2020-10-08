@@ -1,4 +1,6 @@
 class DialecticalFormsController < ApplicationController
+  #delete this skip_before_action after developing db in rails
+  skip_before_action :verify_authenticity_token
   before_action :set_dialectical_form, only: [:show, :update, :destroy]
 
   # GET /dialectical_forms
@@ -15,13 +17,19 @@ class DialecticalFormsController < ApplicationController
 
   # POST /dialectical_forms
   def create
+    binding.pry
     @dialectical_form = DialecticalForm.new(dialectical_form_params)
-
-    if @dialectical_form.save
-      render json: @dialectical_form, status: :created, location: @dialectical_form
+    if @entry.save
+      render :step_three
     else
-      render json: @dialectical_form.errors, status: :unprocessable_entity
+      render :welcome
     end
+
+    # if @dialectical_form.save
+    #   render json: @dialectical_form, status: :created, location: @dialectical_form
+    # else
+    #   render json: @dialectical_form.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /dialectical_forms/1
