@@ -19,8 +19,9 @@ class DialecticalFormsController < ApplicationController
   def create
     binding.pry
     @dialectical_form = DialecticalForm.new(dialectical_form_params)
+    @entry = Entry.find(params[:dialectical_form][:entry_id])
     if @entry.save
-      render :step_three
+      render :step_two
     else
       render :welcome
     end
@@ -54,6 +55,6 @@ class DialecticalFormsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def dialectical_form_params
-      params.require(:dialectical_form).permit(:lexeme)
+      params.require(:dialectical_form).permit(:lexeme, :dialect_id, :entry_id, :add_dialect)
     end
 end
