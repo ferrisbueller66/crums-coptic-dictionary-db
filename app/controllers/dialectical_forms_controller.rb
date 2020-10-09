@@ -12,24 +12,22 @@ class DialecticalFormsController < ApplicationController
 
   # GET /dialectical_forms/1
   def show
-    render json: @dialectical_form
+    render :step_three
+    #render json: @dialectical_form
   end
 
   # POST /dialectical_forms
   def create
-    
     @dialectical_form = DialecticalForm.new
     @dialectical_form.dialect_id = dialectical_form_params[:dialect_id]
     @dialectical_form.lexeme = dialectical_form_params[:lexeme]
-
     @entry = Entry.find(dialectical_form_params[:entry_id])
 
-    if @dialectical_form.save
-      if dialectical_form_params[:add_dialect] === "1"
+    if @dialectical_form.save && dialectical_form_params[:add_dialect] === "1"
+      @entry_dialect = EntryDialect.create(entry_id: @entry.id, dialectical_form_id: @dialectical_form.id)
         render :step_two
-      else
+    elsif @dialectical_form.save && dialectical_form_params[:add_dialect] === "0"
         render :step_three
-      end
     else
       render :step_two
       #need to add warnings/error message in re-render
