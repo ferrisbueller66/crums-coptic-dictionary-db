@@ -13,7 +13,9 @@ class EntriesController < ApplicationController
   # GET /entries/1
   def show
     @entry = Entry.find(params[:id])
-    render json: @entry
+    @dialectical_form = DialecticalForm.new
+    render :show
+    #render json: @entry
   end
 
   # NEW /entries

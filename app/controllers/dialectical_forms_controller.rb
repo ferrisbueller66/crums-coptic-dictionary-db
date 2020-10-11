@@ -22,12 +22,9 @@ class DialecticalFormsController < ApplicationController
     @dialectical_form.dialect_id = dialectical_form_params[:dialect_id]
     @dialectical_form.lexeme = dialectical_form_params[:lexeme]
     @entry = Entry.find(dialectical_form_params[:entry_id])
-
-    if @dialectical_form.save && dialectical_form_params[:add_dialect] === "1"
+    if @dialectical_form.save
       @entry_dialect = EntryDialect.create(entry_id: @entry.id, dialectical_form_id: @dialectical_form.id)
-        render :step_two
-    elsif @dialectical_form.save && dialectical_form_params[:add_dialect] === "0"
-        render :step_three
+        redirect_to @entry
     else
       render :step_two
       #need to add warnings/error message in re-render
