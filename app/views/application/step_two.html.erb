@@ -1,7 +1,6 @@
 <H1>Enter the Dialects and Forms </h1>
 
 <%= form_for(@dialectical_form) do |f| %>
-<%binding.pry%>
     <%= f.label :Lexeme %><br>
     <%= f.text_field :lexeme %><br>
   
@@ -12,8 +11,8 @@
             <br>
     
     <%= f.hidden_field :entry_id, value: @entry.id %>
-    <%= f.label :"Add Another Dialect?" %><br>
-    <%= f.check_box :add_dialect %>
+
+   
     <br>
     <br>
     <%= f.submit %>
