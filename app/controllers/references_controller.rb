@@ -1,4 +1,5 @@
 class ReferencesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_reference, only: [:show, :update, :destroy]
 
   # GET /references
@@ -15,12 +16,23 @@ class ReferencesController < ApplicationController
 
   # POST /references
   def create
-    @reference = Reference.new(reference_params)
+    @reference = Reference.new(dialect_id: reference_params[:dialect_id])
+    @reference.source = reference_params[:source]
+    @reference.volume_book = reference_params[:volume_book]
+    @reference.line_verse = reference_params[:line_verse]
+    @reference.text_excerpt = reference_params[:text_excerpt]
+    @reference.translation = reference_params[:translation]
+    @reference.notes = reference_params[:notes]
+    @reference.greek_equivalent = reference_params[:greek_equivalent]
 
+    @meaning = Meaning.find(reference_params[:meaning_id])
     if @reference.save
-      render json: @reference, status: :created, location: @reference
+      MeaningReference.create(meaning_id: reference_params[:meaning_id], reference_id: @reference.id)
+      redirect_to @meaning
+      #render json: @reference, status: :created, location: @reference
     else
-      render json: @reference.errors, status: :unprocessable_entity
+      render :show_meaning
+      #render json: @reference.errors, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +58,6 @@ class ReferencesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def reference_params
-      params.require(:reference).permit(:source, :volume_book, :line_verse, :text_excerpt, :translation, :notes, :greek_equivalent)
+      params.require(:reference).permit(:source, :volume_book, :line_verse, :text_excerpt, :translation, :notes, :greek_equivalent, :meaning_id, :dialect_id)
     end
 end

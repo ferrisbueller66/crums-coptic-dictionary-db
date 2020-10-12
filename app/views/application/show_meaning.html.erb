@@ -1,7 +1,7 @@
 <H1><%=@meaning.lexical_entry%>: <%=@meaning.translation_value%> </H1>
 <h3> References: </h3>
 <%@meaning.meaning_references.each do |mf|%>
-<li><%= mf.reference.source%>(<%=mf.reference.volume_book%>)</li>
+<li><%= mf.reference.source%> <%=mf.reference.volume_book%>:<%=mf.reference.line_verse%> (<%=mf.reference.dialect.name%>) </li>
 <%end%>
 
 <h2> Create a New Reference </h2>
