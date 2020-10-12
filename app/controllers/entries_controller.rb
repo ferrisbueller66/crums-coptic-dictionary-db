@@ -13,6 +13,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   def show
     @entry = Entry.find(params[:id])
+    @meaning = Meaning.new(entry_id: @entry.id)
     @dialectical_form = DialecticalForm.new
     render :show_entry
     #render json: @entry

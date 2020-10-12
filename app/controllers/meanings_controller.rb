@@ -1,26 +1,32 @@
 class MeaningsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_meaning, only: [:show, :update, :destroy]
 
   # GET /meanings
-  def index
-    @meanings = Meaning.all
+  # def index
+  #   @meanings = Meaning.all
 
-    render json: @meanings
-  end
+  #   render json: @meanings
+  # end
 
   # GET /meanings/1
   def show
-    render json: @meaning
+  
+    render :show_meaning
+    #render json: @meaning
   end
 
   # POST /meanings
   def create
+    
+    @entry = Entry.find(meaning_params[:entry_id])
     @meaning = Meaning.new(meaning_params)
-
     if @meaning.save
-      render json: @meaning, status: :created, location: @meaning
+      redirect_to @meaning
+      #render json: @meaning, status: :created, location: @meaning
     else
-      render json: @meaning.errors, status: :unprocessable_entity
+      #render json: @meaning.errors, status: :unprocessable_entity
+      redirect_to @entry
     end
   end
 
@@ -46,6 +52,6 @@ class MeaningsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def meaning_params
-      params.require(:meaning).permit(:lexical_entry, :translation_value)
+      params.require(:meaning).permit(:lexical_entry, :translation_value, :entry_id)
     end
 end

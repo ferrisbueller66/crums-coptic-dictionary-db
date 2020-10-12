@@ -16,13 +16,6 @@ class DialecticalFormsController < ApplicationController
     #render json: @dialectical_form
   end
 
-  def new
-    binding.pry
-    @entry = Entry.find(params[:id])
-    @dialectical_form = DialecticalForm.new
-      render :step_two
-  end
-
   # POST /dialectical_forms
   def create
     @dialectical_form = DialecticalForm.new

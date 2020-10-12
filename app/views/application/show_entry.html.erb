@@ -1,12 +1,14 @@
-Current Chapter: <%=@entry.chapter.title%>
+<H1>Current Entry: <%=link_to @entry.lemma, entry_path(@entry)%></h1>
 <br>
-Current Entry: <%=link_to @entry.lemma, entry_path(@entry)%>
+<h3>Current Chapter: <%=@entry.chapter.title%> </h3>
 <br>
-Dialect Forms: <%@entry.entry_dialects.each do |form| %>
+
+<h3>Dialect Forms:</h3> 
+<%@entry.entry_dialects.each do |form| %>
 <li><%=form.dialectical_form.lexeme %></li>
 <%end%>
 <br>
-Add Another Dialectical Form: 
+<h2>Add Another Dialectical Form:</h2> 
 
 
 <%= form_for(@dialectical_form) do |f| %>
@@ -28,5 +30,32 @@ Add Another Dialectical Form:
 
 <% end %>
 
+<h3>Meanings:</h3> 
+<%@entry.meanings.each do |meaning| %>
+<li><%=meaning.translation_value %></li>
+<%end%>
+<br>
 
+<h2>Add Another Meaning:</h2> 
+
+
+<%= form_for(@meaning) do |f| %>
+    <%= f.label :"Lexical Entry" %><br>
+    <%= f.text_field :lexical_entry %><br>
+  
+    <br>
+   
+    <%= f.label :"Translation Value" %><br>
+    <%= f.text_field :translation_value %><br>
+  
+    <br>
+
+    <%= f.hidden_field :entry_id, value: @entry.id %>
+
+   
+    <br>
+    <br>
+    <%= f.submit %>
+
+<% end %>
 
