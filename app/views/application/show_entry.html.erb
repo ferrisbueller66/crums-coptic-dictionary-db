@@ -1,0 +1,9 @@
+Current Chapter: <%=@entry.chapter.title%>
+<br>
+Current Entry: <%=link_to @entry.lemma, entry_path(@entry)%>
+<br>
+Dialect Forms: <%@entry.entry_dialects.each do |form| %>
+<%form.dialectical_form.lexeme %>
+<%end%>
+Add A Dialect Form: <%=link_to @entry.lemma, entry_path(@entry)%>
+Add a Meaning: <%=link_to @entry.lemma, entry_path(@entry)%>
