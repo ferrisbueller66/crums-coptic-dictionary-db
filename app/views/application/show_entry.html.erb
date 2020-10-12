@@ -32,8 +32,8 @@
 
 <h3>Meanings:</h3> 
 <%@entry.meanings.each do |meaning| %>
-<li><%=meaning.translation_value %></li>
-<%end%>
+<li><%=link_to meaning.translation_value, meaning_path(meaning)%> </li>
+<% end %>
 <br>
 
 <h2>Add Another Meaning:</h2> 

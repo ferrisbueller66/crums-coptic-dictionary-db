@@ -11,7 +11,7 @@ class MeaningsController < ApplicationController
 
   # GET /meanings/1
   def show
-  
+    @reference = Reference.new
     render :show_meaning
     #render json: @meaning
   end
