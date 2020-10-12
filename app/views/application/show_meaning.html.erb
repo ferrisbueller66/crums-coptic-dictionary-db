@@ -1,6 +1,47 @@
 <H1><%=@meaning.lexical_entry%>: <%=@meaning.translation_value%> </H1>
+<h3> References: </h3>
+<%@meaning.meaning_references.each do |mf|%>
+<li><%= mf.reference.source%>(<%=mf.reference.volume_book%>)</li>
+<%end%>
 
+<h2> Create a New Reference </h2>
 
+<%= form_for(@reference) do |f| %>
+    <%= f.label :Source %><br>
+    <%= f.text_field :source %><br>
+
+    <%= f.label :"Volume or Book" %><br>
+    <%= f.text_field :volume_book %><br>
+
+    <%= f.label :"Line or Verse" %><br>
+    <%= f.text_field :line_verse %><br>
+
+    <%= f.label :"Text Excerpt" %><br>
+    <%= f.text_field :text_excerpt %><br>
+
+    <%= f.label :"Translation" %><br>
+    <%= f.text_field :translation %><br>
+
+    <%= f.label :Notes %><br>
+    <%= f.text_field :notes %><br>
+
+    <%= f.label :Greek %><br>
+    <%= f.text_field :greek_equivalent %><br>
+  
+    <br>
+   
+        <%= f.label :"Select a Dialect" %><br>
+        <%= f.collection_select :dialect_id, Dialect.all, :id, :name, {:include_blank => "Please select"} %><br>
+            <br>
+    
+    <%= f.hidden_field :meaning_id, value: @meaning.id %>
+
+   
+    <br>
+    <br>
+    <%= f.submit %>
+
+<% end %>
 
 
 
