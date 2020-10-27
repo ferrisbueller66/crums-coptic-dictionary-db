@@ -29,10 +29,17 @@ class EntriesController < ApplicationController
 
   # POST /entries
   def create
-    
-    @entry = Entry.new(entry_params)
+    @entry = Entry.new(chapter_id: entry_params[:chapter_id], starting_page: entry_params[:starting_page], lemma: entry_params[:lemma], pos: entry_params[:pos])
+
+    if entry_params[:entries] != ""
+      cross_reference = Entry.find_by(lemma: entry_params[:entries])
+      binding.pry
+      @entry.entries = [cross_reference]
+    end
+
     if @entry.save
       @dialectical_form = DialecticalForm.new
+      binding.pry
       render :step_two
     else
       render :welcome
@@ -66,6 +73,6 @@ class EntriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def entry_params
-      params.require(:entry).permit(:id, :chapter_id, :starting_page, :lemma, :pos)
+      params.require(:entry).permit(:id, :chapter_id, :starting_page, :lemma, :pos, :entries)
     end
 end
