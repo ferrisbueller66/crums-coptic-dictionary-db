@@ -36,3 +36,5 @@ I did not want to take liberties with Crum's work, and worked to maintain his fo
 
 1. I did update biblical refererences to conform to SBL style standards
 2. I kept the source abbreviations the same as Crum
+
+
