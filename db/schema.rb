@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_11_07_010943) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "chapters", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   end
 
   create_table "dialectical_forms", force: :cascade do |t|
-    t.bigint "dialect_id"
+    t.integer "dialect_id"
     t.string "lexeme"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -36,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.bigint "chapter_id"
+    t.integer "chapter_id"
     t.integer "starting_page"
     t.string "lemma"
     t.string "pos"
@@ -47,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   end
 
   create_table "entry_dialects", force: :cascade do |t|
-    t.bigint "entry_id"
-    t.bigint "dialectical_form_id"
+    t.integer "entry_id"
+    t.integer "dialectical_form_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dialectical_form_id"], name: "index_entry_dialects_on_dialectical_form_id"
@@ -56,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   end
 
   create_table "meaning_references", force: :cascade do |t|
-    t.bigint "meaning_id"
-    t.bigint "reference_id"
+    t.integer "meaning_id"
+    t.integer "reference_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["meaning_id"], name: "index_meaning_references_on_meaning_id"
@@ -65,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   end
 
   create_table "meanings", force: :cascade do |t|
-    t.bigint "entry_id"
+    t.integer "entry_id"
     t.string "lexical_entry"
     t.string "translation_value"
     t.datetime "created_at", precision: 6, null: false
@@ -74,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   end
 
   create_table "references", force: :cascade do |t|
-    t.bigint "dialect_id"
+    t.integer "dialect_id"
     t.string "source"
     t.integer "volume_book"
     t.integer "line_verse"
@@ -91,8 +88,8 @@ ActiveRecord::Schema.define(version: 2020_11_07_010943) do
   add_foreign_key "entries", "chapters"
   add_foreign_key "entry_dialects", "dialectical_forms"
   add_foreign_key "entry_dialects", "entries"
-  add_foreign_key "meaning_references", "\"references\"", column: "reference_id"
   add_foreign_key "meaning_references", "meanings"
+  add_foreign_key "meaning_references", "references"
   add_foreign_key "meanings", "entries"
   add_foreign_key "references", "dialects"
 end
