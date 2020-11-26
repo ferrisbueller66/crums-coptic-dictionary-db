@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_022846) do
+ActiveRecord::Schema.define(version: 2020_11_26_021434) do
 
   create_table "chapters", force: :cascade do |t|
     t.string "title"
@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 2020_11_23_022846) do
     t.string "pos"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "cross_reference"
     t.boolean "completed", default: false
+    t.integer "head_id"
     t.index ["chapter_id"], name: "index_entries_on_chapter_id"
+    t.index ["head_id"], name: "index_entries_on_head_id"
   end
 
   create_table "entry_dialects", force: :cascade do |t|

@@ -29,10 +29,10 @@ class EntriesController < ApplicationController
 
   # POST /entries
   def create
-    @entry = Entry.new(chapter_id: entry_params[:chapter_id], starting_page: entry_params[:starting_page], lemma: entry_params[:lemma], pos: entry_params[:pos])
+    @entry = Entry.new(chapter_id: entry_params[:chapter_id], starting_page: entry_params[:starting_page], lemma: entry_params[:lemma], pos: entry_params[:pos], head: entry_params[:head])
 
     if entry_params[:entries] != ""
-      cross_reference = Entry.find_by(lemma: entry_params[:entries])
+      #cross_reference = Entry.find_by(lemma: entry_params[:entries])
       binding.pry
       @entry.entries = [cross_reference]
     end
@@ -73,6 +73,6 @@ class EntriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def entry_params
-      params.require(:entry).permit(:id, :chapter_id, :starting_page, :lemma, :pos, :entries)
+      params.require(:entry).permit(:id, :chapter_id, :starting_page, :lemma, :pos, :completed, :head_id)
     end
 end

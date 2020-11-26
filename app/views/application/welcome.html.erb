@@ -9,17 +9,14 @@
 
     <%= f.label :"Part of Speech" %><br>
     <%= f.text_field :pos %><br>
-
-    <%= f.label :"Cross Reference" %><br>
-    <%= f.text_field :entries %><br>
-  
     <br>
-   
+     <%= f.label :"Is This Entry Completed?" %><br>
+    <%= f.check_box :completed %> <br />
+    
+    <br>
         <%= f.label :"Select a Chapter" %><br>
         <%= f.collection_select :chapter_id, @chapters, :id, :title, {:include_blank => "Please select"} %><br>
-            <br>
-    
-
+    <br>
     <br>
     <br>
     <%= f.submit %>
