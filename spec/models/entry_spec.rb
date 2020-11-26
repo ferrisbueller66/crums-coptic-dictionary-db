@@ -8,14 +8,18 @@ RSpec.describe Entry, type: :model do
     Entry.create(chapter_id: chapter.id,
     starting_page: 243, 
     pos: "verb",
-    lemma: "ⲛⲟⲩϩⲃ")
+    lemma: "ⲛⲟⲩϩⲃ",
+    completed: false,
+    )
   }
 
   let(:parent_entry){
     Entry.create(chapter_id: chapter2.id,
     starting_page: 541, 
     pos: "verb", 
-    lemma: "ϣ-")
+    lemma: "ϣ-",
+    completed: false,
+  )
   }
 
   let(:child_entry){
@@ -23,10 +27,11 @@ RSpec.describe Entry, type: :model do
     starting_page: 628, 
     pos: "verb", 
     lemma: "ⳉ",
-    cross_reference: parent_entry.id)
+    completed: false,
+  )
   }
 
-  it "is valid with a starting page, lemma, and part of speech (POS)" do
+  it "is valid with a starting page, lemma, part of speech (POS), and completion status" do
     expect(entry).to be_valid
   end
 
@@ -34,7 +39,14 @@ RSpec.describe Entry, type: :model do
     expect(entry.chapter_id).to eq chapter.id
   end
 
-  it "can reference another entry" do
-    expect(entry.chapter_id).to eq chapter.id
+  it "can be the parent (has_many) of another entry, by adding child to parent" do
+    parent_entry.subordinates << child_entry
+    expect(parent_entry.subordinates).to include child_entry
   end
+
+  it "can be the child of (belong_to) another entry, by adding child to parent" do
+    parent_entry.subordinates << child_entry
+    expect(child_entry.head_id).to eq parent_entry.id
+  end
+
 end
