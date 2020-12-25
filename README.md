@@ -2,7 +2,7 @@
 
 ![Project Image](./public/images/cover-crum-a-coptic-dictionary.jpg)
 
-> The first digitization of *Crum's Coptic Dictionary*, providing a free API for consumption. This project is still in development and not yet in production.
+> The first searcheable digitization of *Crum's Coptic Dictionary*, providing a free API for consumption. This project is still in development and not yet in production.
 
 ![forks badge](https://img.shields.io/github/forks/tmtarpinian/crums-coptic-dictionary-db)
 ![stars badge](https://img.shields.io/github/stars/tmtarpinian/crums-coptic-dictionary-db)
